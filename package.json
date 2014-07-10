@@ -8,8 +8,13 @@
   },
   "description": "MultiSlot API wrapper for node.",
   "devDependencies": {
+    "browserify": "^4.2.0",
     "chai": "^1.9.1",
-    "mocha": "^1.20.1"
+    "envify": "^2.0.0",
+    "gulp": "^3.8.6",
+    "mocha": "^1.20.1",
+    "vinyl-buffer": "0.0.0",
+    "vinyl-source-stream": "^0.1.1"
   },
   "keywords": [
     "node",
