@@ -33,7 +33,7 @@ describe('multislot', function () {
   });
 
   describe('tournaments', function () {
-    var token = null;
+    var token;
 
     before(function (done) {
       var opts = {username: username, password: password, url: url};
@@ -45,12 +45,6 @@ describe('multislot', function () {
 
     it('should be an object', function () {
       multislot.tournaments.should.be.an('object');
-    });
-
-    describe('get', function () {
-      it('should be a function', function () {
-        multislot.tournaments.get.should.be.a('function');
-      });
     });
 
     describe('list', function () {
@@ -79,6 +73,51 @@ describe('multislot', function () {
         multislot.tournaments.list(opts, function (err, data) {
           data.should.be.an('object');
           data.tournaments.should.be.an('array');
+          done(err);
+        });
+      });
+    });
+
+    describe('get', function () {
+      var tournamentId;
+
+      before(function (done) {
+        var opts = {token: token, url: url};
+        multislot.tournaments.list(opts, function (err, data) {
+          if (err) done(err);
+          var tournaments = data.tournaments[0];
+          if (!tournaments) return done('no tournaments');
+          tournamentId = tournaments.trnyevent[0].TrnyEventId[0];
+          console.log('tournamentId:', tournamentId);
+          done(err);
+        });
+      });
+
+      it('should be a function', function () {
+        multislot.tournaments.get.should.be.a('function');
+      });
+
+      it('should fail on an invalid url', function (done) {
+        var opts = {token: token, tournamentId: tournamentId, url: 'https://www.google.com'};
+        multislot.tournaments.get(opts, function (err, data) {
+          (err === null).should.not.be.true;
+          done();
+        });
+      });
+
+      it('should fail on an invalid token', function (done) {
+        var opts = {token: '', tournamentId: tournamentId, url: url};
+        multislot.tournaments.get(opts, function (err, data) {
+          (err === null).should.not.be.true;
+          done();
+        });
+      });
+
+      it('succeed', function (done) {
+        var opts = {token: token, tournamentId: tournamentId, url: url};
+        multislot.tournaments.get(opts, function (err, data) {
+          data.should.be.an('object');
+          data.trnyevent.should.be.an('array');
           done(err);
         });
       });
