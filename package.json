@@ -1,0 +1,31 @@
+{
+  "author": "Genesant Technologies, Inc.",
+  "dependencies": {
+    "qs": "^0.6.6",
+    "request": "^2.37.0",
+    "soap": "^0.4.7",
+    "xml2js": "^0.4.4"
+  },
+  "description": "MultiSlot API wrapper for node.",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.20.1"
+  },
+  "keywords": [
+    "node",
+    "multislot",
+    "api"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "node-multislot",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/psirenny/node-multislot.git"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test"
+  },
+  "version": "0.1.0"
+}
