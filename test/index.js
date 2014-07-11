@@ -53,7 +53,7 @@ describe('multislot', function () {
       });
 
       it('should fail on an invalid url', function (done) {
-        var opts = {token: token, url: 'https://www.google.com'};
+        var opts = {token: token, url: 'http://www.google.com'};
         multislot.tournaments.list(opts, function (err, data) {
           (err === null).should.not.be.true;
           done();
@@ -88,7 +88,6 @@ describe('multislot', function () {
           var tournaments = data.tournaments[0];
           if (!tournaments) return done('no tournaments');
           tournamentId = tournaments.trnyevent[0].TrnyEventId[0];
-          console.log('tournamentId:', tournamentId);
           done(err);
         });
       });
@@ -98,7 +97,7 @@ describe('multislot', function () {
       });
 
       it('should fail on an invalid url', function (done) {
-        var opts = {token: token, tournamentId: tournamentId, url: 'https://www.google.com'};
+        var opts = {token: token, tournamentId: tournamentId, url: 'http://www.google.com'};
         multislot.tournaments.get(opts, function (err, data) {
           (err === null).should.not.be.true;
           done();

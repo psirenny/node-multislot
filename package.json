@@ -12,6 +12,8 @@
     "chai": "^1.9.1",
     "envify": "^2.0.0",
     "gulp": "^3.8.6",
+    "gulp-connect": "^2.0.6",
+    "gulp-rimraf": "^0.1.0",
     "mocha": "^1.20.1",
     "vinyl-buffer": "0.0.0",
     "vinyl-source-stream": "^0.1.1"
