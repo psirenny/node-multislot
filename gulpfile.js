@@ -19,7 +19,7 @@ gulp.task('clean', function () {
     .pipe(rimraf())
 });
 
-gulp.task('test-browser', ['test-browser-dep', 'test-browser-tests'], function () {
+gulp.task('test-browser', ['test-browser-dep', 'test-browser-runner'], function () {
   connect.server({
     root: 'test/browser'
   });
